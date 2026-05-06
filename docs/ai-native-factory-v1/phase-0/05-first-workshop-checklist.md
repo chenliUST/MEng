@@ -24,6 +24,8 @@ This meeting should not debate the whole factory vision. It should freeze one or
 
 Every file or record brought into the meeting must have an owner.
 
+Use `06-pre-workshop-data-request.md` and `examples/ai-native-factory-v1/phase-0/pre-workshop-data-inventory.csv` to prepare the evidence pack.
+
 | Evidence | Owner | Use |
 |---|---|---|
 | Historical order record | Program or quote owner | CustomerOrder and quotation baseline |
