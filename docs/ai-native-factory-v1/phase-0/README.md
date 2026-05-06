@@ -8,6 +8,7 @@ Use this kit to run the first working session:
 2. `02-validation-machine-freeze.md`
 3. `03-resource-master-data-freeze.md`
 4. `04-offline-chain-runbook.md`
+5. `05-first-workshop-checklist.md`
 
 Expected outputs:
 
