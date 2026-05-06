@@ -16,4 +16,12 @@ Read in this order:
 10. `09-phase-1-acceptance-checklist.md`
 11. `10-phase-2-3-expansion-plan.md`
 
+Phase 0 start kit:
+
+- `phase-0/README.md`
+- `phase-0/01-first-order-sample-freeze.md`
+- `phase-0/02-validation-machine-freeze.md`
+- `phase-0/03-resource-master-data-freeze.md`
+- `phase-0/04-offline-chain-runbook.md`
+
 The system spine is Operation Execution Package. Agent output must become structured DecisionLog and object updates. Machine Physical Agent must execute only approved actions and write trace evidence back to the OEP.
