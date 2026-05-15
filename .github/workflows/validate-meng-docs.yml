@@ -1,0 +1,36 @@
+name: Validate MEng docs
+
+on:
+  pull_request:
+    paths:
+      - "docs/ai-native-systems-transformation-meng/**"
+      - "docs/superpowers/specs/2026-05-13-ai-native-systems-transformation-meng-design.md"
+      - "docs/superpowers/plans/2026-05-14-ai-native-systems-transformation-meng-program.md"
+      - "scripts/validate_meng_docs.py"
+      - ".github/workflows/validate-meng-docs.yml"
+  push:
+    branches:
+      - master
+      - "codex/**"
+    paths:
+      - "docs/ai-native-systems-transformation-meng/**"
+      - "docs/superpowers/specs/2026-05-13-ai-native-systems-transformation-meng-design.md"
+      - "docs/superpowers/plans/2026-05-14-ai-native-systems-transformation-meng-program.md"
+      - "scripts/validate_meng_docs.py"
+      - ".github/workflows/validate-meng-docs.yml"
+
+jobs:
+  validate:
+    name: Validate document package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate MEng document package
+        run: python scripts/validate_meng_docs.py

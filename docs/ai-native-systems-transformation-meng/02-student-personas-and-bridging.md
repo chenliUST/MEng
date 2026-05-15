@@ -27,8 +27,8 @@ Development needs:
 
 Likely excellence areas:
 
-- AI Systems Integration.
-- Implementation/Prototyping.
+- AI/Data Systems Enablement.
+- Transformation Design And Implementation.
 
 ## Persona 2: Domain/Engineering Practitioner
 
@@ -48,7 +48,7 @@ Development needs:
 Likely excellence areas:
 
 - Systems Diagnosis.
-- Implementation/Prototyping.
+- Transformation Design And Implementation.
 
 ## Persona 3: Systems/Operations Thinker
 
@@ -85,7 +85,7 @@ Development needs:
 
 Likely excellence areas:
 
-- Implementation/Prototyping.
+- Transformation Design And Implementation.
 - Practical Transformation Leadership.
 
 ## Bridging Model

@@ -51,9 +51,9 @@ Students begin industry immersion in Semester 1. They commit to a deep challenge
 ## Graduate Promises
 
 1. See the whole system.
-2. Work with AI responsibly and rigorously.
-3. Learn continuously as AI evolves.
-4. Turn problems into validated prototypes.
+2. Design practical transformation.
+3. Use AI and data responsibly.
+4. Learn continuously as technologies and industries evolve.
 5. Bridge people, data, and implementation.
 6. Build evidence of transformation capability.
 
@@ -64,7 +64,8 @@ The program is distinct from traditional engineering master's programs, AI/data 
 Its central promise is evidence-based transformation capability:
 
 - Students diagnose real systems.
-- Students use and evaluate AI with professional discipline.
+- Students design interventions across technology, people, data, process, and governance.
+- Students use and evaluate AI with professional discipline where it creates responsible value.
 - Students prototype and validate interventions.
 - Students work with sponsors and domain experts.
 - Students graduate with portfolio evidence and a competency defense.

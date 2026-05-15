@@ -22,13 +22,15 @@ Source of truth:
 
 This plan was executed on 2026-05-14 via grouped subagent-driven execution, with artifacts reviewed by spec and quality reviewers. Individual task commit steps were consolidated into a final package commit, so per-task commit checkboxes remain as implementation instructions rather than a literal execution log.
 
+Revision note: after review, the competency model was rebalanced to be systems-first, implementation-centered, AI/data-enabled, and professionally mature. The current source documents and design spec supersede the earlier task snippets embedded below where they describe the older layered competency model.
+
 ## File Structure
 
 Create this artifact set:
 
 - `docs/ai-native-systems-transformation-meng/README.md`: reading order and artifact map.
 - `docs/ai-native-systems-transformation-meng/00-proposal-narrative.md`: executive proposal narrative for leadership and program approval.
-- `docs/ai-native-systems-transformation-meng/01-competency-model-and-rubric.md`: layered competencies, graduate promises, evidence rubric.
+- `docs/ai-native-systems-transformation-meng/01-competency-model-and-rubric.md`: rebalanced competency domains, graduate promises, evidence rubric.
 - `docs/ai-native-systems-transformation-meng/02-student-personas-and-bridging.md`: canonical personas, admissions baseline, diagnostics, bridging.
 - `docs/ai-native-systems-transformation-meng/03-curriculum-map.md`: two-year structure, semester rhythm, core blocks, electives.
 - `docs/ai-native-systems-transformation-meng/04-course-and-workshop-designs.md`: course outlines and workshop series.

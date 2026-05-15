@@ -12,9 +12,9 @@ The public promise is not "learn AI tools" or "become an AI engineer." The promi
 
 The graduate identity is a Hybrid Transformation Engineer. Every graduate meets a common core standard, then shows differentiated excellence in one or two areas:
 
-- AI Systems Integration
+- AI/Data Systems Enablement
 - Systems Diagnosis
-- Implementation/Prototyping
+- Transformation Design And Implementation
 - Practical Transformation Leadership
 
 The program's internal pillars are:
@@ -37,12 +37,12 @@ Six graduate promises:
 
 1. See the whole system.
    Graduates can map technical processes, data flows, human workflows, organizational incentives, and external dependencies before proposing solutions.
-2. Work with AI responsibly and rigorously.
-   Graduates can use AI agents and tools productively while checking outputs, documenting assumptions, evaluating risks, and knowing when human judgment must override automation.
-3. Learn continuously as AI evolves.
-   Graduates can track emerging AI capabilities, evaluate new tools critically, update workflows responsibly, and transfer learning across unfamiliar domains.
-4. Turn problems into validated prototypes.
-   Graduates can move from diagnosis to prototype, testing technical feasibility, user/workflow fit, and operational value.
+2. Design practical transformation.
+   Graduates can turn diagnosis into validated interventions across process, technology, workflow, organization, and governance.
+3. Use AI and data responsibly.
+   Graduates can select, integrate, and evaluate AI/data capabilities only where they improve system performance, decision quality, learning, or coordination.
+4. Learn continuously as technologies and industries evolve.
+   Graduates can track emerging AI capabilities and industry methods, update practice responsibly, and transfer learning across unfamiliar domains.
 5. Bridge people, data, and implementation.
    Graduates can communicate with engineers, domain experts, managers, users, and partners to convert AI-enabled ideas into practical change.
 6. Build evidence of transformation capability.
@@ -50,42 +50,63 @@ Six graduate promises:
 
 Short version:
 
-> Graduates who can diagnose complex systems, integrate AI responsibly, learn continuously, prototype practical solutions, and drive evidence-based transformation across domains.
+> Graduates who can diagnose complex systems, design practical transformations, use AI and data responsibly, learn continuously, and drive evidence-based transformation across domains.
 
 ## 3. Competency Model
 
-The program uses a layered competency model. The five pain-point gaps remain the foundation, but the public-facing model is easier to explain to students, employers, faculty, and reviewers.
+The program uses a rebalanced competency model: systems-first, implementation-centered, AI/data-enabled, and professionally mature. AI is not removed or minimized; it is positioned as a powerful enabling capability inside a broader systems-transformation profession.
 
-### 3.1 Layer 1: Foundational Competencies
+### 3.1 Systems Understanding And Diagnosis
 
-- AI systems literacy and integration: understand ML, LLM, and agent architectures well enough to design, evaluate, integrate, and govern AI-enabled systems.
-- Data and digital systems literacy: reason about data quality, workflows, APIs, schemas, security, interoperability, and analytics.
-- Systems thinking: map technical, organizational, human, operational, and ecosystem dependencies.
-- Communication and collaboration: work across STEM backgrounds, sponsors, domain experts, and users.
+Students learn to understand complex systems before proposing AI, data, workflow, or organizational interventions.
 
-### 3.2 Layer 2: Transformation Competencies
+- System boundary and context framing: define boundaries, stakeholders, incentives, constraints, risks, and external dependencies.
+- Workflow, process, and data-flow mapping: map technical processes, human routines, data movement, organizational interfaces, and decision points.
+- Root-cause and constraint diagnosis: identify bottlenecks, failure modes, coordination gaps, value leakage, and structural causes.
+- Opportunity thesis formation: convert messy field evidence into a focused transformation opportunity with assumptions and risks.
 
-- Systems diagnosis: identify bottlenecks, dependencies, root causes, constraints, and opportunity theses.
-- Trusted data collaboration: combine technical data capability with governance, sovereignty, standards, incentives, compliance, and responsible use.
-- Implementation/prototyping: build and validate software/data, cyber-physical/process, or service/product prototypes depending on the project context.
-- Human-AI work design: redesign workflows, decision rights, handoffs, accountability, and adoption routines around AI-enabled systems.
+### 3.2 Transformation Design And Implementation
 
-### 3.3 Layer 3: Professional Judgment Competencies
+Students learn to turn diagnosis into interventions that can be prototyped, validated, piloted, governed, and handed off.
 
-- AI-guided engineering judgment: verify AI outputs using domain knowledge, first principles, evidence, ethics, safety, and operational constraints.
-- Responsibility and risk judgment: identify failure modes, affected stakeholders, privacy/safety concerns, and accountability boundaries.
-- Adaptive learning and technology renewal: continuously evaluate emerging AI capabilities, update methods, and transfer learning across unfamiliar domains.
-- Work-readiness: manage ambiguity, define milestones, communicate with sponsors, document decisions, and contribute with shorter ramp-up time.
+- Intervention design: generate options across process, technology, data, workflow, organization, and governance.
+- Prototyping and pilot design: build practical prototypes, simulations, workflow pilots, data products, or service/process experiments.
+- Validation discipline: test technical feasibility, user/workflow fit, operational value, implementation constraints, and adoption risks.
+- Scale, governance, and handoff planning: produce implementation roadmap, governance logic, adoption plan, and sponsor-facing handoff package.
 
-### 3.4 Layer 4: Evidence of Mastery
+### 3.3 AI, Data, And Digital Enablement
+
+Students learn to use AI, data, automation, analytics, and digital systems where they responsibly improve the system.
+
+- AI/data systems literacy: understand ML, LLM, agent, automation, analytics, data, API, security, and interoperability choices in project context.
+- Tool selection and architecture rationale: evaluate when AI is useful, unnecessary, risky, premature, or operationally unsuitable.
+- Evaluation and responsible-use discipline: build evaluation harnesses, AI work logs, reliability checks, human override logic, and accountability boundaries.
+- Data collaboration and governance: define data access, quality limits, sovereignty, compliance, incentives, privacy, and responsible use.
+
+### 3.4 Professional Judgment And Continuous Learning
+
+Students learn to make defensible decisions under ambiguity, communicate evidence, and keep renewing their methods as technology and industry change.
+
+- Judgment under ambiguity: make defensible decisions with incomplete evidence, competing constraints, and changing project conditions.
+- Responsibility and risk judgment: identify affected stakeholders, safety/privacy concerns, failure modes, ethics, and accountability boundaries.
+- Sponsor and cross-boundary communication: produce sponsor-facing summaries, technical memos, decision records, and final defense materials.
+- Adaptive learning and technology renewal: document how emerging tools and methods were assessed, accepted, rejected, or integrated.
+
+### 3.5 Cross-Cutting Human, Organizational, And Stakeholder Integration
+
+Human, organizational, and stakeholder integration runs through every competency domain, every studio gate, every major project review, and the final defense. Students must repeatedly show who is affected, how workflows and roles change, what adoption barriers exist, where accountability sits, how users and sponsors are involved, and what evidence shows the intervention can work in the real organization.
+
+### 3.6 Evidence Of Mastery
 
 - Longitudinal project portfolio
 - Deep industry/co-op/capstone challenge
+- System diagnosis and transformation roadmap
+- Prototype, pilot, or field implementation evidence
 - AI work log, evaluation harness, and responsibility memo
 - Sponsor reviews and field evidence
 - Final competency defense
 
-The model has a common core plus differentiated excellence structure. Every student meets the shared baseline, then demonstrates distinctive strength in one or two excellence areas: AI Systems Integration, Systems Diagnosis, Implementation/Prototyping, or practical Transformation Leadership.
+The model has a common core plus differentiated excellence structure. Every student meets the shared baseline, then demonstrates distinctive strength in one or two excellence areas: Systems Diagnosis, Transformation Design And Implementation, AI/Data Systems Enablement, or practical Transformation Leadership.
 
 ## 4. Student Personas
 
@@ -109,7 +130,7 @@ Development needs:
 - Responsible implementation
 - Value and workflow validation
 
-Likely excellence area: AI Systems Integration or Implementation/Prototyping.
+Likely excellence area: AI/Data Systems Enablement or Transformation Design And Implementation.
 
 ### 4.2 Domain/Engineering Practitioner
 
@@ -123,7 +144,7 @@ Development needs:
 - Agent/tool operating discipline
 - Cross-domain transformation language
 
-Likely excellence area: Systems Diagnosis or Implementation/Prototyping.
+Likely excellence area: Systems Diagnosis or Transformation Design And Implementation.
 
 ### 4.3 Systems/Operations Thinker
 
@@ -149,7 +170,7 @@ Development needs:
 - Engineering validation
 - Evidence-based decision discipline
 
-Likely excellence area: Implementation/Prototyping or practical Transformation Leadership, often expressed through human-AI work design.
+Likely excellence area: Transformation Design And Implementation or practical Transformation Leadership, often expressed through human-AI work design.
 
 ### 4.5 Persona Use
 
@@ -265,9 +286,9 @@ Workshops are short, intensive, and repeated at project milestones:
 
 Students choose depth modules linked to differentiated excellence:
 
-- AI Systems Integration: agentic workflows, applied ML/LLM evaluation, AI product architecture, MLOps/LLMOps.
+- AI/Data Systems Enablement: agentic workflows, applied ML/LLM evaluation, AI product architecture, MLOps/LLMOps.
 - Systems Diagnosis: systems modeling, operations analytics, digital twins/simulation, complexity and resilience.
-- Implementation/Prototyping: advanced prototyping, IoT/cyber-physical integration, product/service experimentation, software engineering for transformation.
+- Transformation Design And Implementation: advanced prototyping, IoT/cyber-physical integration, product/service experimentation, software engineering for transformation.
 - Practical Transformation Leadership: project leadership, stakeholder communication, change coordination, adoption planning, entrepreneurship basics.
 
 Because Practical Transformation Leadership stays light in the common core, deeper business strategy, finance, and economics are electives or project-embedded rather than required.
