@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-native-factory.local/schemas/agents/v1/agent-contract.schema.json",
+  "title": "AgentDecisionContract",
+  "type": "object",
+  "required": ["decision_id", "agent_id", "agent_version", "decision_type", "target_refs", "recommendation", "evidence_refs", "assumptions", "risk_level", "required_approval", "affected_objects", "proposed_events", "adoption_status", "reviewer", "review_notes"],
+  "properties": {
+    "decision_id": { "type": "string", "pattern": "^DEC-[A-Z0-9-]+$" },
+    "agent_id": { "type": "string" },
+    "agent_version": { "type": "string" },
+    "decision_type": { "type": "string", "enum": ["quote", "dfm", "process_route", "resource_selection", "oep_gate", "execution_trace", "knowledge_candidate"] },
+    "target_refs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "recommendation": { "type": "object" },
+    "evidence_refs": { "type": "array", "items": { "type": "string" } },
+    "assumptions": { "type": "array", "items": { "type": "string" } },
+    "risk_level": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "required_approval": { "type": "boolean" },
+    "affected_objects": { "type": "array", "items": { "type": "string" } },
+    "proposed_events": { "type": "array", "items": { "type": "string" } },
+    "adoption_status": { "type": "string", "enum": ["proposed", "accepted", "modified", "rejected", "expired"] },
+    "reviewer": { "type": ["string", "null"] },
+    "review_notes": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

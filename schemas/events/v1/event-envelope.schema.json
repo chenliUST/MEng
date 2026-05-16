@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-native-factory.local/schemas/events/v1/event-envelope.schema.json",
+  "title": "EventEnvelope",
+  "type": "object",
+  "required": ["event_id", "event_type", "source", "subject", "time", "schema_version", "correlation_id", "actor", "payload"],
+  "properties": {
+    "event_id": { "type": "string", "pattern": "^EVT-[A-Z0-9-]+$" },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "Order.Received",
+        "Drawing.Registered",
+        "Quote.Proposed",
+        "Quote.HumanReviewed",
+        "ProcessPlan.Proposed",
+        "ProcessPlan.HumanReviewed",
+        "OEP.Drafted",
+        "OEP.GateChecked",
+        "OEP.Approved",
+        "OEP.Released",
+        "MachineAgent.CommandRequested",
+        "MachineAgent.CommandExecuted",
+        "MachineAgent.StateObserved",
+        "MachineAgent.EvidenceRecorded",
+        "MachineAgent.ContainmentTriggered",
+        "MachineAgent.FeedHoldTriggered",
+        "Inspection.ResultCaptured",
+        "Exception.Opened",
+        "Exception.Closed",
+        "Decision.Recorded",
+        "Knowledge.CandidateCreated"
+      ]
+    },
+    "source": { "type": "string" },
+    "subject": { "type": "string" },
+    "time": { "type": "string", "format": "date-time" },
+    "schema_version": { "const": "1.0" },
+    "correlation_id": { "type": "string" },
+    "causation_id": { "type": ["string", "null"] },
+    "actor": {
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": { "type": "string", "enum": ["human", "agent", "service", "machine"] },
+        "id": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "payload": { "type": "object" }
+  },
+  "additionalProperties": false
+}

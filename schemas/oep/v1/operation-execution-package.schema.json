@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-native-factory.local/schemas/oep/v1/operation-execution-package.schema.json",
+  "title": "OperationExecutionPackage",
+  "type": "object",
+  "required": ["package_id", "package_type", "schema_version", "status", "parent_refs", "plan", "gate", "trace"],
+  "properties": {
+    "package_id": { "type": "string", "pattern": "^OEP-[A-Z0-9-]+$" },
+    "package_type": { "const": "OperationExecutionPackage" },
+    "schema_version": { "const": "1.0" },
+    "status": {
+      "type": "string",
+      "enum": ["Draft", "EngineeringReady", "ResourceChecked", "Simulated", "Approved", "Released", "Staged", "Executing", "Paused", "ReworkRequired", "Completed", "Archived", "Cancelled"]
+    },
+    "parent_refs": {
+      "type": "object",
+      "required": ["order_mission_package_id", "part_lot_package_id"],
+      "properties": {
+        "order_mission_package_id": { "type": "string" },
+        "part_lot_package_id": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "plan": {
+      "type": "object",
+      "required": ["order_ref", "part_ref", "operation_ref", "resources", "quality"],
+      "properties": {
+        "order_ref": {
+          "type": "object",
+          "required": ["customer_order_id", "customer_order_version", "quotation_id", "quotation_version"],
+          "properties": {
+            "customer_order_id": { "type": "string" },
+            "customer_order_version": { "type": "string" },
+            "quotation_id": { "type": "string" },
+            "quotation_version": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "part_ref": {
+          "type": "object",
+          "required": ["part_id", "part_version", "drawing_id", "drawing_revision", "cad_model_id", "cad_model_revision"],
+          "properties": {
+            "part_id": { "type": "string" },
+            "part_version": { "type": "string" },
+            "drawing_id": { "type": "string" },
+            "drawing_revision": { "type": "string" },
+            "cad_model_id": { "type": "string" },
+            "cad_model_revision": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "operation_ref": {
+          "type": "object",
+          "required": ["process_plan_id", "process_plan_version", "operation_id", "operation_version", "setup_plan_id", "setup_plan_version", "nc_program_id", "nc_program_version"],
+          "properties": {
+            "process_plan_id": { "type": "string" },
+            "process_plan_version": { "type": "string" },
+            "operation_id": { "type": "string" },
+            "operation_version": { "type": "string" },
+            "setup_plan_id": { "type": "string" },
+            "setup_plan_version": { "type": "string" },
+            "nc_program_id": { "type": "string" },
+            "nc_program_version": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "resources": {
+          "type": "object",
+          "required": ["machine_id", "machine_capability_version", "tool_assembly_refs", "fixture_id", "fixture_version", "pallet_id", "pallet_version", "material_lot_id", "operator_id", "operator_skill_required"],
+          "properties": {
+            "machine_id": { "type": "string" },
+            "machine_capability_version": { "type": "string" },
+            "tool_assembly_refs": { "type": "array", "items": { "$ref": "#/$defs/idVersionRef" }, "minItems": 1 },
+            "fixture_id": { "type": "string" },
+            "fixture_version": { "type": "string" },
+            "pallet_id": { "type": "string" },
+            "pallet_version": { "type": "string" },
+            "material_lot_id": { "type": "string" },
+            "operator_id": { "type": "string" },
+            "operator_skill_required": { "type": "array", "items": { "type": "string" } }
+          },
+          "additionalProperties": false
+        },
+        "quality": {
+          "type": "object",
+          "required": ["inspection_plan_id", "inspection_plan_version", "critical_characteristics"],
+          "properties": {
+            "inspection_plan_id": { "type": "string" },
+            "inspection_plan_version": { "type": "string" },
+            "critical_characteristics": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "gate": {
+      "type": "object",
+      "required": ["engineering_version_consistency", "resource_kitting", "tool_life", "fixture_and_pallet_confirmed", "simulation", "quality_plan_ready", "authority_approval"],
+      "properties": {
+        "engineering_version_consistency": { "$ref": "#/$defs/gateStatus" },
+        "resource_kitting": { "$ref": "#/$defs/gateStatus" },
+        "tool_life": { "$ref": "#/$defs/gateStatus" },
+        "fixture_and_pallet_confirmed": { "$ref": "#/$defs/gateStatus" },
+        "simulation": { "$ref": "#/$defs/gateStatus" },
+        "quality_plan_ready": { "$ref": "#/$defs/gateStatus" },
+        "authority_approval": { "$ref": "#/$defs/gateStatus" }
+      },
+      "additionalProperties": false
+    },
+    "trace": {
+      "type": "object",
+      "required": ["execution_records", "measurement_results", "exceptions", "command_records", "decision_log_refs"],
+      "properties": {
+        "execution_records": { "type": "array", "items": { "$ref": "#/$defs/executionRecord" } },
+        "measurement_results": { "type": "array", "items": { "$ref": "#/$defs/measurementResult" } },
+        "exceptions": { "type": "array", "items": { "$ref": "#/$defs/exceptionRecord" } },
+        "command_records": { "type": "array", "items": { "$ref": "#/$defs/commandRecord" } },
+        "decision_log_refs": { "type": "array", "items": { "type": "string", "pattern": "^DEC-[A-Z0-9-]+$" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "gateStatus": {
+      "type": "string",
+      "enum": ["pending", "passed", "failed", "waived"]
+    },
+    "idVersionRef": {
+      "type": "object",
+      "required": ["id", "version"],
+      "properties": {
+        "id": { "type": "string" },
+        "version": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "actorRef": {
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": { "type": "string", "enum": ["human", "agent", "service", "machine"] },
+        "id": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "executionRecord": {
+      "type": "object",
+      "required": ["execution_record_id", "package_id", "started_at", "status", "actor"],
+      "properties": {
+        "execution_record_id": { "type": "string" },
+        "package_id": { "type": "string", "pattern": "^OEP-[A-Z0-9-]+$" },
+        "started_at": { "type": "string", "format": "date-time" },
+        "ended_at": { "type": ["string", "null"], "format": "date-time" },
+        "status": { "type": "string", "enum": ["started", "paused", "completed", "aborted"] },
+        "actor": { "$ref": "#/$defs/actorRef" }
+      },
+      "additionalProperties": false
+    },
+    "measurementResult": {
+      "type": "object",
+      "required": ["measurement_result_id", "package_id", "inspection_plan_id", "characteristic_id", "captured_at", "result_status"],
+      "properties": {
+        "measurement_result_id": { "type": "string" },
+        "package_id": { "type": "string", "pattern": "^OEP-[A-Z0-9-]+$" },
+        "inspection_plan_id": { "type": "string" },
+        "characteristic_id": { "type": "string" },
+        "captured_at": { "type": "string", "format": "date-time" },
+        "value": {},
+        "unit": { "type": ["string", "null"] },
+        "result_status": { "type": "string", "enum": ["captured", "accepted", "rejected", "needs_review"] }
+      },
+      "additionalProperties": false
+    },
+    "exceptionRecord": {
+      "type": "object",
+      "required": ["exception_id", "package_id", "opened_at", "severity", "status", "description"],
+      "properties": {
+        "exception_id": { "type": "string" },
+        "package_id": { "type": "string", "pattern": "^OEP-[A-Z0-9-]+$" },
+        "opened_at": { "type": "string", "format": "date-time" },
+        "closed_at": { "type": ["string", "null"], "format": "date-time" },
+        "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+        "status": { "type": "string", "enum": ["open", "contained", "closed"] },
+        "description": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "commandRecord": {
+      "type": "object",
+      "required": ["command_id", "package_id", "command_type", "actor", "requested_at", "result"],
+      "properties": {
+        "command_id": { "type": "string", "pattern": "^MCMD-[A-Z0-9-]+$" },
+        "package_id": { "type": "string", "pattern": "^OEP-[A-Z0-9-]+$" },
+        "command_type": {
+          "type": "string",
+          "enum": ["bind_nc_program", "download_nc_program", "trigger_probe_macro", "trigger_tool_setting_macro", "trigger_tool_break_check", "read_machine_state", "write_measurement_macro_variable", "trigger_feed_hold", "raise_alarm_stop"]
+        },
+        "approval_id": { "type": ["string", "null"] },
+        "post_containment_review_id": { "type": ["string", "null"] },
+        "actor": { "$ref": "#/$defs/actorRef" },
+        "requested_at": { "type": "string", "format": "date-time" },
+        "completed_at": { "type": ["string", "null"], "format": "date-time" },
+        "result": { "type": "string", "enum": ["accepted", "rejected", "executed", "failed", "blocked"] },
+        "exception_id": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "command_type": { "enum": ["trigger_feed_hold", "raise_alarm_stop"] }
+            },
+            "required": ["command_type"]
+          },
+          "then": {
+            "required": ["post_containment_review_id"]
+          },
+          "else": {
+            "required": ["approval_id"]
+          }
+        }
+      ]
+    }
+  }
+}

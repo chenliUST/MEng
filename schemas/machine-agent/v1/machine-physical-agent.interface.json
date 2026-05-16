@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-native-factory.local/schemas/machine-agent/v1/machine-physical-agent.interface.json",
+  "title": "MachinePhysicalAgentCommand",
+  "type": "object",
+  "required": ["command_id", "package_id", "machine_agent_id", "command_type", "safety_class", "requested_by", "requested_at"],
+  "properties": {
+    "command_id": { "type": "string", "pattern": "^MCMD-[A-Z0-9-]+$" },
+    "package_id": { "type": "string", "pattern": "^OEP-[A-Z0-9-]+$" },
+    "machine_agent_id": { "type": "string" },
+    "command_type": {
+      "type": "string",
+      "enum": ["bind_nc_program", "download_nc_program", "trigger_probe_macro", "trigger_tool_setting_macro", "trigger_tool_break_check", "read_machine_state", "write_measurement_macro_variable", "trigger_feed_hold", "raise_alarm_stop"]
+    },
+    "safety_class": {
+      "type": "string",
+      "enum": ["approval_gated", "protective_containment"]
+    },
+    "approval_id": { "type": ["string", "null"] },
+    "containment_reason": { "type": ["string", "null"] },
+    "post_containment_review_required": { "type": "boolean" },
+    "requested_by": {
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": { "type": "string", "enum": ["human", "agent", "service"] },
+        "id": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "requested_at": { "type": "string", "format": "date-time" },
+    "parameters": { "type": "object" }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "command_type": { "enum": ["trigger_feed_hold", "raise_alarm_stop"] }
+        },
+        "required": ["command_type"]
+      },
+      "then": {
+        "required": ["containment_reason", "post_containment_review_required"],
+        "properties": {
+          "safety_class": { "const": "protective_containment" },
+          "post_containment_review_required": { "const": true }
+        }
+      },
+      "else": {
+        "required": ["approval_id"],
+        "properties": {
+          "safety_class": { "const": "approval_gated" }
+        }
+      }
+    }
+  ]
+}

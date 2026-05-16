@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-native-factory.local/schemas/machine-agent/v1/execution-evidence.schema.json",
+  "title": "MachineExecutionEvidence",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "package_id",
+    "operation_id",
+    "machine_agent_id",
+    "machine_id",
+    "timestamp",
+    "evidence_plane",
+    "record_type",
+    "source",
+    "data_quality",
+    "context_refs",
+    "payload"
+  ],
+  "properties": {
+    "evidence_id": { "type": "string", "pattern": "^EVD-[A-Z0-9-]+$" },
+    "package_id": { "type": "string", "pattern": "^OEP-[A-Z0-9-]+$" },
+    "operation_id": { "type": "string" },
+    "machine_agent_id": { "type": "string" },
+    "machine_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "evidence_plane": {
+      "type": "string",
+      "enum": ["control", "quality", "health", "human"]
+    },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "machine_state",
+        "program_binding",
+        "gate_result",
+        "command_result",
+        "tool_check",
+        "fixture_confirmation",
+        "measurement_result",
+        "first_part_result",
+        "sensor_sample",
+        "exception_note",
+        "containment_record",
+        "operator_confirmation"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["cnc", "plc", "sensor", "edge_hmi", "scanner", "operator", "quality_system", "edge_agent", "simulation"]
+        },
+        "id": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "data_quality": {
+      "type": "string",
+      "enum": ["direct_read", "controlled_manual", "imported_record", "simulated"]
+    },
+    "context_refs": {
+      "type": "object",
+      "properties": {
+        "nc_program_ref": { "type": ["string", "null"] },
+        "tool_ref": { "type": ["string", "null"] },
+        "fixture_ref": { "type": ["string", "null"] },
+        "pallet_ref": { "type": ["string", "null"] },
+        "operator_ref": { "type": ["string", "null"] },
+        "part_ref": { "type": ["string", "null"] },
+        "material_lot_ref": { "type": ["string", "null"] },
+        "approval_ref": { "type": ["string", "null"] },
+        "command_ref": { "type": ["string", "null"] },
+        "exception_ref": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "payload": { "type": "object" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "record_type": { "const": "command_result" } },
+        "required": ["record_type"]
+      },
+      "then": {
+        "properties": {
+          "context_refs": {
+            "required": ["approval_ref", "command_ref"],
+            "properties": {
+              "approval_ref": { "type": "string" },
+              "command_ref": { "type": "string" }
+            }
+          },
+          "payload": {
+            "required": ["result"],
+            "properties": {
+              "result": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "record_type": { "const": "containment_record" } },
+        "required": ["record_type"]
+      },
+      "then": {
+        "properties": {
+          "context_refs": {
+            "required": ["approval_ref", "command_ref", "exception_ref"],
+            "properties": {
+              "approval_ref": { "type": "string" },
+              "command_ref": { "type": "string" },
+              "exception_ref": { "type": "string" }
+            }
+          },
+          "payload": {
+            "required": [
+              "result",
+              "containment_reason",
+              "post_containment_review_required",
+              "post_containment_review_id"
+            ],
+            "properties": {
+              "result": { "type": "string" },
+              "containment_reason": { "type": "string" },
+              "post_containment_review_required": { "const": true },
+              "post_containment_review_id": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "record_type": { "const": "operator_confirmation" } },
+        "required": ["record_type"]
+      },
+      "then": {
+        "properties": {
+          "context_refs": {
+            "required": ["operator_ref", "approval_ref", "command_ref"],
+            "properties": {
+              "operator_ref": { "type": "string" },
+              "approval_ref": { "type": "string" },
+              "command_ref": { "type": "string" }
+            }
+          },
+          "payload": {
+            "required": ["result", "confirmation_method", "confirmed_by"],
+            "properties": {
+              "result": { "type": "string" },
+              "confirmation_method": { "type": "string" },
+              "confirmed_by": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "record_type": { "const": "first_part_result" } },
+        "required": ["record_type"]
+      },
+      "then": {
+        "properties": {
+          "context_refs": {
+            "required": ["approval_ref", "command_ref", "operator_ref", "part_ref"],
+            "properties": {
+              "approval_ref": { "type": "string" },
+              "command_ref": { "type": "string" },
+              "operator_ref": { "type": "string" },
+              "part_ref": { "type": "string" }
+            }
+          },
+          "payload": {
+            "required": ["inspection_plan_id", "result"],
+            "properties": {
+              "inspection_plan_id": { "type": "string" },
+              "result": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,72 @@
+{
+  "package_id": "OEP-PH0-DEMO-001",
+  "package_type": "OperationExecutionPackage",
+  "schema_version": "1.0",
+  "status": "Draft",
+  "parent_refs": {
+    "order_mission_package_id": "OMP-PH0-DEMO-001",
+    "part_lot_package_id": "PLP-BRACKET-001-LOT01"
+  },
+  "plan": {
+    "order_ref": {
+      "customer_order_id": "SO-PH0-DEMO-001",
+      "customer_order_version": "V1",
+      "quotation_id": "QUO-PH0-DEMO-001",
+      "quotation_version": "V1"
+    },
+    "part_ref": {
+      "part_id": "PART-BRACKET-001",
+      "part_version": "V1",
+      "drawing_id": "DWG-BRACKET-001",
+      "drawing_revision": "A",
+      "cad_model_id": "CAD-BRACKET-001",
+      "cad_model_revision": "A"
+    },
+    "operation_ref": {
+      "process_plan_id": "PP-BRACKET-001",
+      "process_plan_version": "V1",
+      "operation_id": "OP20-FINISH",
+      "operation_version": "V1",
+      "setup_plan_id": "SETUP-OP20-A",
+      "setup_plan_version": "V1",
+      "nc_program_id": "NC-OP20-BRACKET-001",
+      "nc_program_version": "V1"
+    },
+    "resources": {
+      "machine_id": "MC-VAL-001",
+      "machine_capability_version": "V1",
+      "tool_assembly_refs": [
+        { "id": "TASM-D10-001", "version": "V1" },
+        { "id": "TASM-D6-001", "version": "V1" }
+      ],
+      "fixture_id": "FIX-VAL-001",
+      "fixture_version": "V1",
+      "pallet_id": "PAL-VAL-001",
+      "pallet_version": "V1",
+      "material_lot_id": "MAT-6061-LOT-001",
+      "operator_id": "OP-VAL-001",
+      "operator_skill_required": ["validation_machine_setup", "probing_macro"]
+    },
+    "quality": {
+      "inspection_plan_id": "IP-BRACKET-OP20",
+      "inspection_plan_version": "V1",
+      "critical_characteristics": ["DATUM_A", "HOLE_PATTERN_01", "FLATNESS_A"]
+    }
+  },
+  "gate": {
+    "engineering_version_consistency": "pending",
+    "resource_kitting": "pending",
+    "tool_life": "pending",
+    "fixture_and_pallet_confirmed": "pending",
+    "simulation": "pending",
+    "quality_plan_ready": "pending",
+    "authority_approval": "pending"
+  },
+  "trace": {
+    "execution_records": [],
+    "measurement_results": [],
+    "exceptions": [],
+    "command_records": [],
+    "decision_log_refs": ["DEC-PH0-QUOTE-001", "DEC-PH0-PROCESS-001"]
+  }
+}
