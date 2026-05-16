@@ -64,6 +64,36 @@
     }
   },
   {
+    "evidence_id": "EVD-JTGK-A-0003",
+    "package_id": "OEP-JTGK-PILOT-001",
+    "operation_id": "OP10-DRY-TRACE",
+    "machine_agent_id": "MPA-JTGK-800I-001",
+    "machine_id": "MC-JTGK-800I-001",
+    "timestamp": "2026-05-16T09:01:05+08:00",
+    "evidence_plane": "control",
+    "record_type": "command_result",
+    "source": { "type": "edge_agent", "id": "MPA-JTGK-800I-001" },
+    "data_quality": "direct_read",
+    "context_refs": {
+      "nc_program_ref": "NC-JTGK-DRY-001:V1",
+      "tool_ref": null,
+      "fixture_ref": "FIX-JTGK-001:V1",
+      "pallet_ref": "PAL-JTGK-001:V1",
+      "operator_ref": "OP-JTGK-001",
+      "part_ref": "PART-JTGK-PILOT-001:V1",
+      "material_lot_ref": null,
+      "approval_ref": "APP-JTGK-A-001",
+      "command_ref": "MCMD-JTGK-A-READ-STATE-001",
+      "exception_ref": null
+    },
+    "payload": {
+      "result": "machine_state_read",
+      "command_type": "read_machine_state",
+      "machine_state": "staged",
+      "active_program_ref": "NC-JTGK-DRY-001:V1"
+    }
+  },
+  {
     "evidence_id": "EVD-JTGK-B-0001",
     "package_id": "OEP-JTGK-PILOT-001",
     "operation_id": "OP20-FIRST-PART",

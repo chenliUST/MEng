@@ -128,7 +128,7 @@
             "properties": {
               "result": { "type": "string" },
               "containment_reason": { "type": "string" },
-              "post_containment_review_required": { "type": "boolean" },
+              "post_containment_review_required": { "const": true },
               "post_containment_review_id": { "type": "string" }
             }
           }
