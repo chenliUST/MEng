@@ -79,5 +79,114 @@
     },
     "payload": { "type": "object" }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "record_type": { "const": "command_result" } },
+        "required": ["record_type"]
+      },
+      "then": {
+        "properties": {
+          "context_refs": {
+            "required": ["approval_ref", "command_ref"],
+            "properties": {
+              "approval_ref": { "type": "string" },
+              "command_ref": { "type": "string" }
+            }
+          },
+          "payload": {
+            "required": ["result"],
+            "properties": {
+              "result": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "record_type": { "const": "containment_record" } },
+        "required": ["record_type"]
+      },
+      "then": {
+        "properties": {
+          "context_refs": {
+            "required": ["approval_ref", "command_ref", "exception_ref"],
+            "properties": {
+              "approval_ref": { "type": "string" },
+              "command_ref": { "type": "string" },
+              "exception_ref": { "type": "string" }
+            }
+          },
+          "payload": {
+            "required": [
+              "result",
+              "containment_reason",
+              "post_containment_review_required",
+              "post_containment_review_id"
+            ],
+            "properties": {
+              "result": { "type": "string" },
+              "containment_reason": { "type": "string" },
+              "post_containment_review_required": { "type": "boolean" },
+              "post_containment_review_id": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "record_type": { "const": "operator_confirmation" } },
+        "required": ["record_type"]
+      },
+      "then": {
+        "properties": {
+          "context_refs": {
+            "required": ["operator_ref", "approval_ref", "command_ref"],
+            "properties": {
+              "operator_ref": { "type": "string" },
+              "approval_ref": { "type": "string" },
+              "command_ref": { "type": "string" }
+            }
+          },
+          "payload": {
+            "required": ["result", "confirmation_method", "confirmed_by"],
+            "properties": {
+              "result": { "type": "string" },
+              "confirmation_method": { "type": "string" },
+              "confirmed_by": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "record_type": { "const": "first_part_result" } },
+        "required": ["record_type"]
+      },
+      "then": {
+        "properties": {
+          "context_refs": {
+            "required": ["approval_ref", "command_ref", "operator_ref", "part_ref"],
+            "properties": {
+              "approval_ref": { "type": "string" },
+              "command_ref": { "type": "string" },
+              "operator_ref": { "type": "string" },
+              "part_ref": { "type": "string" }
+            }
+          },
+          "payload": {
+            "required": ["inspection_plan_id", "result"],
+            "properties": {
+              "inspection_plan_id": { "type": "string" },
+              "result": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }

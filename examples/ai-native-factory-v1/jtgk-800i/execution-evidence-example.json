@@ -29,6 +29,41 @@
     }
   },
   {
+    "evidence_id": "EVD-JTGK-A-0002",
+    "package_id": "OEP-JTGK-PILOT-001",
+    "operation_id": "OP10-DRY-TRACE",
+    "machine_agent_id": "MPA-JTGK-800I-001",
+    "machine_id": "MC-JTGK-800I-001",
+    "timestamp": "2026-05-16T09:00:30+08:00",
+    "evidence_plane": "human",
+    "record_type": "operator_confirmation",
+    "source": { "type": "scanner", "id": "SCAN-JTGK-001" },
+    "data_quality": "controlled_manual",
+    "context_refs": {
+      "nc_program_ref": "NC-JTGK-DRY-001:V1",
+      "tool_ref": null,
+      "fixture_ref": "FIX-JTGK-001:V1",
+      "pallet_ref": "PAL-JTGK-001:V1",
+      "operator_ref": "OP-JTGK-001",
+      "part_ref": "PART-JTGK-PILOT-001:V1",
+      "material_lot_ref": null,
+      "approval_ref": "APP-JTGK-A-001",
+      "command_ref": "MCMD-JTGK-A-BIND-001",
+      "exception_ref": null
+    },
+    "payload": {
+      "result": "confirmed",
+      "confirmation_method": "scanner",
+      "confirmed_by": "OP-JTGK-001",
+      "confirmed_fields": [
+        "package_id",
+        "operation_id",
+        "machine_id",
+        "nc_program_ref"
+      ]
+    }
+  },
+  {
     "evidence_id": "EVD-JTGK-B-0001",
     "package_id": "OEP-JTGK-PILOT-001",
     "operation_id": "OP20-FIRST-PART",
@@ -88,6 +123,37 @@
       "spindle_load_percent_avg": 72.4,
       "spindle_load_percent_max": 88.1,
       "label": "controlled_exception_window"
+    }
+  },
+  {
+    "evidence_id": "EVD-JTGK-C-0002",
+    "package_id": "OEP-JTGK-PILOT-001",
+    "operation_id": "OP30-PRODUCTION-LIKE",
+    "machine_agent_id": "MPA-JTGK-800I-001",
+    "machine_id": "MC-JTGK-800I-001",
+    "timestamp": "2026-05-16T14:05:05+08:00",
+    "evidence_plane": "control",
+    "record_type": "containment_record",
+    "source": { "type": "edge_agent", "id": "MPA-JTGK-800I-001" },
+    "data_quality": "direct_read",
+    "context_refs": {
+      "nc_program_ref": "NC-JTGK-PRODLIKE-001:V1",
+      "tool_ref": "TASM-D10-001:V1",
+      "fixture_ref": "FIX-JTGK-001:V1",
+      "pallet_ref": "PAL-JTGK-001:V1",
+      "operator_ref": "OP-JTGK-001",
+      "part_ref": "PART-JTGK-PILOT-001:V1",
+      "material_lot_ref": "MAT-6061-JTGK-001",
+      "approval_ref": "APP-JTGK-C-001",
+      "command_ref": "MCMD-JTGK-C-HOLD-001",
+      "exception_ref": "EXC-JTGK-C-001"
+    },
+    "payload": {
+      "result": "feed_hold_confirmed",
+      "containment_reason": "spindle_load_threshold_exceeded_during_controlled_test",
+      "machine_state_after": "feed_hold",
+      "post_containment_review_required": true,
+      "post_containment_review_id": "PCR-JTGK-C-001"
     }
   }
 ]
