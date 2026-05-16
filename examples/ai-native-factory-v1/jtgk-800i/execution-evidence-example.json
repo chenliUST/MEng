@@ -1,0 +1,93 @@
+[
+  {
+    "evidence_id": "EVD-JTGK-A-0001",
+    "package_id": "OEP-JTGK-PILOT-001",
+    "operation_id": "OP10-DRY-TRACE",
+    "machine_agent_id": "MPA-JTGK-800I-001",
+    "machine_id": "MC-JTGK-800I-001",
+    "timestamp": "2026-05-16T09:00:00+08:00",
+    "evidence_plane": "control",
+    "record_type": "program_binding",
+    "source": { "type": "edge_hmi", "id": "HMI-JTGK-001" },
+    "data_quality": "controlled_manual",
+    "context_refs": {
+      "nc_program_ref": "NC-JTGK-DRY-001:V1",
+      "tool_ref": null,
+      "fixture_ref": "FIX-JTGK-001:V1",
+      "pallet_ref": "PAL-JTGK-001:V1",
+      "operator_ref": "OP-JTGK-001",
+      "part_ref": "PART-JTGK-PILOT-001:V1",
+      "material_lot_ref": null,
+      "approval_ref": "APP-JTGK-A-001",
+      "command_ref": "MCMD-JTGK-A-BIND-001",
+      "exception_ref": null
+    },
+    "payload": {
+      "binding_method": "scanner_confirmation",
+      "machine_mode": "manual",
+      "active_program_confirmed": true
+    }
+  },
+  {
+    "evidence_id": "EVD-JTGK-B-0001",
+    "package_id": "OEP-JTGK-PILOT-001",
+    "operation_id": "OP20-FIRST-PART",
+    "machine_agent_id": "MPA-JTGK-800I-001",
+    "machine_id": "MC-JTGK-800I-001",
+    "timestamp": "2026-05-16T11:20:00+08:00",
+    "evidence_plane": "quality",
+    "record_type": "first_part_result",
+    "source": { "type": "quality_system", "id": "QMS-PILOT" },
+    "data_quality": "imported_record",
+    "context_refs": {
+      "nc_program_ref": "NC-JTGK-FIRSTPART-001:V1",
+      "tool_ref": "TASM-D10-001:V1",
+      "fixture_ref": "FIX-JTGK-001:V1",
+      "pallet_ref": "PAL-JTGK-001:V1",
+      "operator_ref": "OP-JTGK-001",
+      "part_ref": "PART-JTGK-PILOT-001:V1",
+      "material_lot_ref": "MAT-6061-JTGK-001",
+      "approval_ref": "APP-JTGK-B-001",
+      "command_ref": "MCMD-JTGK-B-PROBE-001",
+      "exception_ref": null
+    },
+    "payload": {
+      "inspection_plan_id": "IP-JTGK-FIRSTPART-001",
+      "result": "pass",
+      "critical_characteristics": [
+        { "id": "DATUM_A_FLATNESS", "value": 0.018, "unit": "mm", "status": "pass" },
+        { "id": "HOLE_PATTERN_POSITION", "value": 0.032, "unit": "mm", "status": "pass" }
+      ]
+    }
+  },
+  {
+    "evidence_id": "EVD-JTGK-C-0001",
+    "package_id": "OEP-JTGK-PILOT-001",
+    "operation_id": "OP30-PRODUCTION-LIKE",
+    "machine_agent_id": "MPA-JTGK-800I-001",
+    "machine_id": "MC-JTGK-800I-001",
+    "timestamp": "2026-05-16T14:05:00+08:00",
+    "evidence_plane": "health",
+    "record_type": "sensor_sample",
+    "source": { "type": "sensor", "id": "SPINDLE-LOAD-JTGK-001" },
+    "data_quality": "direct_read",
+    "context_refs": {
+      "nc_program_ref": "NC-JTGK-PRODLIKE-001:V1",
+      "tool_ref": "TASM-D10-001:V1",
+      "fixture_ref": "FIX-JTGK-001:V1",
+      "pallet_ref": "PAL-JTGK-001:V1",
+      "operator_ref": "OP-JTGK-001",
+      "part_ref": "PART-JTGK-PILOT-001:V1",
+      "material_lot_ref": "MAT-6061-JTGK-001",
+      "approval_ref": "APP-JTGK-C-001",
+      "command_ref": null,
+      "exception_ref": "EXC-JTGK-C-001"
+    },
+    "payload": {
+      "sample_window_ms": 1000,
+      "spindle_load_percent_avg": 72.4,
+      "spindle_load_percent_max": 88.1,
+      "label": "controlled_exception_window"
+    }
+  }
+]
