@@ -45,6 +45,12 @@ The V1 event envelope schema constrains `event_type` to this catalog. New event 
 | Decision.Recorded | Agent Runtime | Decision | A structured agent decision was stored |
 | Knowledge.CandidateCreated | Agent Runtime | KnowledgeItem | A reusable rule or template candidate was created |
 
+## Physical Containment Event Rule
+
+Use `MachineAgent.ContainmentTriggered` for a governed containment event when feed hold or alarm stop is tied to an exception, containment reason, and post-containment review.
+
+Use `MachineAgent.FeedHoldTriggered` for a lower-level physical feed-hold or protective-stop fact retained for backward compatibility or raw machine-stop recording.
+
 ## Idempotency Rule
 
 The pair `event_id` and `source` is unique. Consumers must ignore repeated delivery of the same event.

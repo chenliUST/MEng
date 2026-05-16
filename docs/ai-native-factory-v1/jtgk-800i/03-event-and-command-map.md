@@ -28,6 +28,12 @@ Commands request action. Events record facts. Evidence records attach detailed m
 | `MachineAgent.CommandExecuted` | Command finishes with success, failure, or blocked result | `command_id`, `result` |
 | `Inspection.ResultCaptured` | First-part or inspection result is captured | `evidence_id` |
 
+## JTGK Containment Event Rule
+
+The JTGK pilot emits `MachineAgent.ContainmentTriggered` for Slice C containment because the OEP exception path requires `command_id`, `exception_id`, `containment_reason`, and post-containment review.
+
+If raw CNC or PLC feed-hold evidence is captured separately, it may also emit or link `MachineAgent.FeedHoldTriggered` as a lower-level physical stop fact for backward-compatible machine-stop recording. The OEP exception path still uses `MachineAgent.ContainmentTriggered`.
+
 ## OEP Trace Write-Back
 
 Each command outcome must write to `trace.command_records`.
