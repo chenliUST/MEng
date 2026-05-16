@@ -1,0 +1,53 @@
+[
+  {
+    "event_id": "EVT-JTGK-000001",
+    "event_type": "MachineAgent.StateObserved",
+    "source": "Machine Physical Agent",
+    "subject": "MC-JTGK-800I-001",
+    "time": "2026-05-16T09:01:00+08:00",
+    "schema_version": "1.0",
+    "correlation_id": "CORR-JTGK-PILOT-001",
+    "causation_id": null,
+    "actor": { "type": "machine", "id": "MPA-JTGK-800I-001" },
+    "payload": {
+      "package_id": "OEP-JTGK-PILOT-001",
+      "evidence_id": "EVD-JTGK-A-0001",
+      "machine_state": "staged",
+      "active_program_ref": "NC-JTGK-DRY-001:V1"
+    }
+  },
+  {
+    "event_id": "EVT-JTGK-000002",
+    "event_type": "MachineAgent.EvidenceRecorded",
+    "source": "Machine Physical Agent",
+    "subject": "OEP-JTGK-PILOT-001",
+    "time": "2026-05-16T11:20:10+08:00",
+    "schema_version": "1.0",
+    "correlation_id": "CORR-JTGK-PILOT-001",
+    "causation_id": "EVT-JTGK-000001",
+    "actor": { "type": "machine", "id": "MPA-JTGK-800I-001" },
+    "payload": {
+      "evidence_id": "EVD-JTGK-B-0001",
+      "evidence_plane": "quality",
+      "record_type": "first_part_result"
+    }
+  },
+  {
+    "event_id": "EVT-JTGK-000003",
+    "event_type": "MachineAgent.ContainmentTriggered",
+    "source": "Machine Physical Agent",
+    "subject": "MC-JTGK-800I-001",
+    "time": "2026-05-16T14:05:05+08:00",
+    "schema_version": "1.0",
+    "correlation_id": "CORR-JTGK-PILOT-001",
+    "causation_id": "EVT-JTGK-000002",
+    "actor": { "type": "machine", "id": "MPA-JTGK-800I-001" },
+    "payload": {
+      "package_id": "OEP-JTGK-PILOT-001",
+      "command_id": "MCMD-JTGK-C-HOLD-001",
+      "exception_id": "EXC-JTGK-C-001",
+      "containment_reason": "spindle_load_threshold_exceeded_during_controlled_test",
+      "post_containment_review_required": true
+    }
+  }
+]

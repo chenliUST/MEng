@@ -35,6 +35,9 @@ The V1 event envelope schema constrains `event_type` to this catalog. New event 
 | OEP.Released | OEP Service | OperationExecutionPackage | The OEP entered release state |
 | MachineAgent.CommandRequested | Agent Runtime or HMI | Machine Physical Agent | A controlled command was requested |
 | MachineAgent.CommandExecuted | Machine Physical Agent | OperationExecutionPackage | A controlled command finished with result |
+| MachineAgent.StateObserved | Machine Physical Agent | Machine | Machine state, mode, active program, alarm, or readiness was observed |
+| MachineAgent.EvidenceRecorded | Machine Physical Agent | OperationExecutionPackage | Control, quality, health, or human evidence was recorded against an OEP |
+| MachineAgent.ContainmentTriggered | Machine Physical Agent | Machine | Feed Hold or alarm stop containment was triggered with post-containment review required |
 | MachineAgent.FeedHoldTriggered | Machine Physical Agent | Machine | Feed Hold or protective stop was triggered |
 | Inspection.ResultCaptured | Machine Physical Agent or Quality HMI | MeasurementResult | Measurement result was captured |
 | Exception.Opened | Any service | Exception | An abnormal condition was opened |
