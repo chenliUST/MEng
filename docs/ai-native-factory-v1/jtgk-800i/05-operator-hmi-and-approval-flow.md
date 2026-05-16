@@ -18,11 +18,11 @@ Keep operator workflow fast enough that traceability is used during real machine
 |---|---|---|
 | Package bind | OEP id, part id, operation id, NC program id/version | human-plane evidence |
 | Setup confirm | fixture id, pallet id, tool assembly ids, operator id | human-plane evidence |
-| Gate review | gate status, missing evidence, approval id | approval reference |
-| Command request | command type, safety class, command id, required approval | command request |
+| Gate review | gate status, missing evidence | `approval_id` |
+| Command request | command type, safety class, command_id, approval_id for approval-gated commands | command request |
 | Command result | result, timestamp, machine state, evidence links | command record |
-| Exception note | exception id, reason code, operator note, owner | exception record |
-| Containment review | command id, containment reason, machine state, reviewer, disposition | post-containment review |
+| Exception note | exception_id, reason code, operator note, owner | exception record |
+| Containment review | command_id, containment_reason, machine state, reviewer, disposition | post-containment review |
 
 ## Normal Command Approval
 
@@ -50,11 +50,13 @@ Normal command types:
 Containment path:
 
 1. Edge agent or operator detects protective condition.
-2. Edge agent may trigger `trigger_feed_hold` or `raise_alarm_stop`.
-3. Event `MachineAgent.ContainmentTriggered` is recorded.
-4. Exception is opened.
-5. Operator note is captured.
-6. Post-containment review is required before the run is closed.
+2. Edge agent opens or links `exception_id`.
+3. Edge agent records `containment_reason` and `command_id` for the protective action.
+4. Edge agent triggers `trigger_feed_hold` or `raise_alarm_stop` only when containment criteria are met.
+5. Edge agent records command result for `command_id`.
+6. Event `MachineAgent.ContainmentTriggered` is recorded with `command_id`, `exception_id`, `containment_reason`, command result, and post-containment review required.
+7. Operator note is captured.
+8. Post-containment review is required before the run is closed.
 
 Containment is not production release authority. It is a protective action with mandatory review.
 
